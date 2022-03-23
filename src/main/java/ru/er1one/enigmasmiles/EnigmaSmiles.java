@@ -21,7 +21,6 @@ public final class EnigmaSmiles extends JavaPlugin {
     public void onEnable() {
         instance = this;
         loadEmojis();
-        // Подключение метрики
         Metrics metrics = new Metrics(this, 12790);
         saveDefaultConfig();
         sendStartedInfo();
@@ -31,7 +30,7 @@ public final class EnigmaSmiles extends JavaPlugin {
 
     private void sendStartedInfo() {
         log.info("|<---------------------------------------->|");
-        log.info("|  EnigmaSmiles v1.0 has been started      |");
+        log.info("|  EnigmaSmiles v1.2 has been started      |");
         log.info("|<---------------------------------------->|");
     }
 
