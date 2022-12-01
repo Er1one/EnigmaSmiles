@@ -1,5 +1,6 @@
 package ru.er1one.enigmasmiles;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.er1one.enigmasmiles.commands.SmilesCommand;
 import ru.er1one.enigmasmiles.listeners.EventListener;
@@ -13,6 +14,8 @@ public final class EnigmaSmiles extends JavaPlugin {
 
     private static EnigmaSmiles instance;
 
+    private boolean papi = false;
+
     private static final Logger log = Logger.getLogger("Minecraft");
 
     private final Map<String, Emoji> emojis = new HashMap<>();
@@ -20,6 +23,10 @@ public final class EnigmaSmiles extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            this.papi = true;
+            log.info("PlaceholderAPI successfully hooked!");
+        }
         loadEmojis();
         Metrics metrics = new Metrics(this, 12790);
         saveDefaultConfig();
@@ -30,7 +37,7 @@ public final class EnigmaSmiles extends JavaPlugin {
 
     private void sendStartedInfo() {
         log.info("|<---------------------------------------->|");
-        log.info("|  EnigmaSmiles v1.2 has been started      |");
+        log.info("|  EnigmaSmiles v1.3 has been started      |");
         log.info("|<---------------------------------------->|");
     }
 
@@ -55,5 +62,9 @@ public final class EnigmaSmiles extends JavaPlugin {
             emojis.put(input, new Emoji(output, permission));
         }
         return amount;
+    }
+
+    public boolean isPapiEnabled() {
+        return papi;
     }
 }

@@ -1,7 +1,7 @@
 package ru.er1one.enigmasmiles.listeners;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -25,7 +25,13 @@ public class EventListener implements Listener {
                 continue;
             }
 
-            event.setMessage(event.getMessage().replace(input, format(emoji.getOutput())));
+            String output = emoji.getOutput();
+
+            if(instance.isPapiEnabled()) {
+                output = PlaceholderAPI.setPlaceholders(event.getPlayer(), output);
+            }
+
+            event.setMessage(event.getMessage().replace(input, format(output)));
         }
     }
 

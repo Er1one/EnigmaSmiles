@@ -5,7 +5,7 @@
 # |_____| |_| |_| |_|  \__, | |_| |_| |_|  \__,_| |____/  |_| |_| |_| |_| |_|  \___| |___/
 #                      |___/
 #
-# Плагин: EnigmaSmiles v1.2
+# Плагин: EnigmaSmiles v1.3
 #  Автор: Er1one (vk.com/er1one)
 #
 messages:
@@ -13,6 +13,11 @@ messages:
   reloaded: "&6&lEnigmaSmiles &8» &aПлагин перезагружен! Загружено &a&l%amount%&a эмоджи"
 
 smiles:
+# Если установление PlaceholderAPI, то значение output будет форматироваться от имени игрока.
+#  world:
+#    permission: "smiles.world"
+#    input: ":world:"
+#    output: "%player_world%"
   love:
     permission: "smiles.love"
     input: "<3"
