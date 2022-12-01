@@ -28,11 +28,11 @@ public final class EnigmaSmiles extends JavaPlugin {
             log.info("PlaceholderAPI successfully hooked!");
         }
         loadEmojis();
-        Metrics metrics = new Metrics(this, 12790);
         saveDefaultConfig();
         sendStartedInfo();
         getServer().getPluginManager().registerEvents(new EventListener(), this);
         getServer().getPluginCommand("smiles").setExecutor(new SmilesCommand());
+        Metrics metrics = new Metrics(this, 12790);
     }
 
     private void sendStartedInfo() {
